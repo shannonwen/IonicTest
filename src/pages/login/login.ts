@@ -3,6 +3,7 @@ import { NavController, NavParams, ViewController, LoadingController, ToastContr
 import {BaseUI } from '../../common/baseui'
 import { RestProvider } from '../../providers/rest/rest'
 import { Storage } from '@ionic/storage'
+import { RegisterPage } from '../register/register'
 /**
  * 
  * Generated class for the LoginPage page.
@@ -61,5 +62,9 @@ export class LoginPage extends BaseUI {
   dismiss(){
       this.viewCtrl.dismiss();
   } 
+
+  pushRegisterPage(){
+    this.navCtrl.push(RegisterPage);
+  }
 
 }

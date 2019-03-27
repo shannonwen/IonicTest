@@ -11,6 +11,7 @@ import { MorePage } from '../pages/more/more';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { IonicStorageModule } from '@ionic/storage';
+import { RegisterPage } from '../pages/register/register';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,11 +26,14 @@ import { RestProvider } from '../providers/rest/rest';
     MorePage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      backButtonText:"返回"
+    }),
     HttpModule,
     IonicStorageModule.forRoot()
   ],
@@ -42,7 +46,8 @@ import { RestProvider } from '../providers/rest/rest';
     MorePage,
     HomePage,
     TabsPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

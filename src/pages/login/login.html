@@ -18,8 +18,6 @@
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content>
   <ion-list>
     <ion-item>
@@ -36,6 +34,6 @@
     <button ion-button color="primary" block (click)="login()">登  录</button>
   </div>
   <div padding text-center>
-      <button ion-button color="primary" outline>没有账号？注册</button>
-    </div>
+    <button ion-button color="primary" outline (click)="pushRegisterPage($event)">没有账号？注册</button>
+  </div>
 </ion-content>

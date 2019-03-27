@@ -36,6 +36,10 @@ export class RestProvider {
     return this.getUrlReturn(this.apiUrlLogin + "?mobile=" + mobile + "&password=" + password);
   }
 
+  register(nickname, mobile, password): Observable<string[]>{
+    return this.getUrlReturn(this.apiUrlRegister + "?mobile=" + mobile + "&password=" + password + "&nickname=" + nickname);
+  }
+
   /**
    *
    *全局获取HTTP请求的方法
