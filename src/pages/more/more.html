@@ -22,12 +22,18 @@
       <button ion-button outline small (click)="showModal()">登陆/注册</button>
     </ion-card-content>
   </ion-card>
-  <ion-card *ngIf="logined">
-      <ion-card-header text-center>
-        已登录
-      </ion-card-header>
-      <ion-card-content text-center>
+  <ion-card *ngIf="logined" class="marginTop">
+      <ion-list>
+        <button ion-item (click)="gotouserPage()">
+          <ion-avatar item-start>
+            <img src="{{headface}}" alt="">
+          </ion-avatar>
+          <h2>{{userinfo.UserNickName}}</h2>
+          <p>查看个人主页或编辑简介</p>
+        </button>
+      </ion-list>
+      <!-- <ion-card-content text-center>
         <button ion-button outline small (click)="showModal()">注销</button>
-      </ion-card-content>
+      </ion-card-content> -->
     </ion-card>
 </ion-content>

@@ -12,6 +12,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { IonicStorageModule } from '@ionic/storage';
 import { RegisterPage } from '../pages/register/register';
+import { UserPage } from '../pages/user/user';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -27,7 +28,8 @@ import { RestProvider } from '../providers/rest/rest';
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    UserPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,8 @@ import { RestProvider } from '../providers/rest/rest';
     HomePage,
     TabsPage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    UserPage
   ],
   providers: [
     StatusBar,

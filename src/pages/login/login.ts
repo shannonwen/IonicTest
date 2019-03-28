@@ -51,8 +51,10 @@ export class LoginPage extends BaseUI {
               loading.dismiss();
               super.showToast(this.toastCtrl, f["StatusContent"]);
             }
-        }),
-        error=>this.errorMessage - <any>error;
+          },
+            error=>this.errorMessage = <any>error
+        )
+        
   }
   /**
    * 取消
