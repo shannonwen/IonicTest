@@ -3,6 +3,7 @@ import { NavController, NavParams, LoadingController, ToastController, ViewContr
 import { Storage } from '@ionic/storage';
 import { BaseUI } from '../../common/baseui';
 import { RestProvider } from '../../providers/rest/rest'
+import { HeadfacePage } from '../headface/headface';
 
 /**
  * Generated class for the UserPage page.
@@ -85,4 +86,7 @@ export class UserPage extends BaseUI {
     this.viewCtrl.dismiss();
   }
 
+  gotoheadface(){
+    this.navCtrl.push(HeadfacePage);
+  }
 }
