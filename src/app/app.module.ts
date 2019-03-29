@@ -20,6 +20,10 @@ import { HeadfacePage } from '../pages/headface/headface';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { RestProvider } from '../providers/rest/rest';
+import { File } from '@ionic-native/file';
+import { Transfer } from '@ionic-native/transfer';
+import { FilePath } from '@ionic-native/file-path';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -61,7 +65,11 @@ import { RestProvider } from '../providers/rest/rest';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestProvider
+    RestProvider,
+    Camera,
+    File,
+    FilePath,
+    Transfer
   ]
 })
 export class AppModule {}
