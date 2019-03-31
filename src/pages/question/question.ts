@@ -44,12 +44,14 @@ export class QuestionPage extends BaseUI {
       .then(val => {
         if(val != null){
           var loading = super.showLoading(this.loadingCtrl, "发表中...");
-          alert(val);
           this.rest.saveQuestion(val, this.title, this.content)
             .subscribe(f => {
               if(f["Status"] == "OK"){
                 loading.dismiss();
-                this.dismiss();
+                super.showToast(this.toastCtrl, "发布成功");
+                setTimeout(() => {
+                  this.dismiss();
+                }, 1000);
               } else{
                 loading.dismiss();
                 super.showToast(this.toastCtrl, "请登录后发布提问...");
