@@ -14,6 +14,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { RegisterPage } from '../pages/register/register';
 import { UserPage } from '../pages/user/user';
 import { HeadfacePage } from '../pages/headface/headface';
+import { QuestionPage } from '../pages/question/question';
 
 
 
@@ -37,7 +38,8 @@ import { Camera } from '@ionic-native/camera';
     LoginPage,
     RegisterPage,
     UserPage,
-    HeadfacePage
+    HeadfacePage,
+    QuestionPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { Camera } from '@ionic-native/camera';
     LoginPage,
     RegisterPage,
     UserPage,
-    HeadfacePage
+    HeadfacePage,
+    QuestionPage
   ],
   providers: [
     StatusBar,

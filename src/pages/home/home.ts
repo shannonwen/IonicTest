@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
+import { QuestionPage } from '../question/question'
 
 @Component({
   selector: 'page-home',
@@ -7,8 +8,20 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController,
+    public modalCtrl: ModalController) {
 
+  }
+
+
+  /**
+   * 提问
+   *
+   * @memberof HomePage
+   */
+  gotoQuestion(){
+    var modal = this.modalCtrl.create(QuestionPage);
+    modal.present();
   }
 
 }

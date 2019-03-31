@@ -25678,14 +25678,14 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-page-more .card {
-  margin: 0;
+page-more .marginTop {
+  margin-top: 10px;
 }
 
-page-more .card-md {
-  width: 100%;
+page-user .marginTop {
+  margin-top: 10px;
 }
 
-page-more .card-ios {
-  width: 100%;
+page-user .marginBottom {
+  margin-bottom: 10px !important;
 }

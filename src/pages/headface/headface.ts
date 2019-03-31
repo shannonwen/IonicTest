@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ActionSheetController, LoadingController, Platform, ToastController } from 'ionic-angular';
+import { NavController, normalizeURL, NavParams, ActionSheetController, LoadingController, Platform, ToastController, ViewController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import { BaseUI } from '../../common/baseui';
 import { RestProvider } from '../../providers/rest/rest';
@@ -35,13 +35,14 @@ export class HeadfacePage extends BaseUI {
     public actionSheetCtrl: ActionSheetController,
     public storage: Storage,
     public rest: RestProvider,
-    public loading: LoadingController,
+    public loadingCtrl: LoadingController,
     public camera: Camera,
     public transfer: Transfer,
     public filepath: FilePath,
     public file: File,
     public platform: Platform,
-    public toastCtrl: ToastController
+    public toastCtrl: ToastController,
+    public viewCtrl: ViewController
     ) {
       super();
   }
@@ -112,7 +113,7 @@ export class HeadfacePage extends BaseUI {
   }
 
   ionViewDidEnter(){
-    this.storage.get("userId")
+    this.storage.get("UserId")
       .then(val => {
         if(val != null){
           this.userId = val;
@@ -127,13 +128,13 @@ export class HeadfacePage extends BaseUI {
         {
           text: '从图片库中选择',
           handler: () => {
-            
+            this.takePicture(this.camera.PictureSourceType.PHOTOLIBRARY);
           }
         },
         {
           text: '使用相机',
           handler: () => {
-
+            this.takePicture(this.camera.PictureSourceType.CAMERA);
           }
         },
         {
@@ -143,6 +144,58 @@ export class HeadfacePage extends BaseUI {
       ]
     });
     actionSheet.present();
+  }
+  /**
+   * 处理图片路径为可上传的路径
+   *
+   * @param {*} img
+   * @returns
+   * @memberof HeadfacePage
+   */
+  pathForImage(img){
+    if(img === null){
+      return '';
+    } else {
+      return normalizeURL(cordova.file.dataDirectory + img);
+    }
+  }
+
+
+  uploadImage(){
+    var url = 'https://imoocqa.gugujiankong.com/api/account/uploadheadface';
+    var targetPath = this.pathForImage(this.lastImage);
+    var fileName = this.userId + '.jpg';//定义上传后的文件名
+    //上传的参数
+    var options = {
+      fileKey: 'file',
+      fileName: fileName,
+      chunkedMode: false,
+      mimeType: 'multipart/form-data',
+      params: {
+        'fileName': fileName,
+        'userid': this.userId
+      }
+    }
+    //为了稳定传输
+    const fileTransfer: TransferObject = this.transfer.create();
+
+    var loading = super.showLoading(this.loadingCtrl, '上传中...');
+
+    //开始正式上传
+    fileTransfer.upload(targetPath, url, options)
+      .then(data => {
+        loading.dismiss();
+        super.showToast(this.toastCtrl, '图片上传成功！');
+        //在用户看清提示后进行页面关闭
+        setTimeout(() => {
+          this.viewCtrl.dismiss();
+        }, 3000)
+      },
+      error =>{
+        loading.dismiss();
+        super.showToast(this.toastCtrl, '图片上传发生错误，请重试！');
+      });
+
   }
 
 }

@@ -31,22 +31,66 @@ export class RestProvider {
   private apiUrlGetQuestion = 'https://imoocqa.gugujiankong.com/api/question/get';
   private apiUrlAnswer = 'https://imoocqa.gugujiankong.com/api/question/answer';
 
-
+  /**
+   * 使用用户名密码登录
+   *
+   * @param {*} mobile
+   * @param {*} password
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
   login(mobile, password): Observable<string[]>{
     return this.getUrlReturn(this.apiUrlLogin + "?mobile=" + mobile + "&password=" + password);
   }
 
+  /**
+   * 注册用户
+   *
+   * @param {*} nickname
+   * @param {*} mobile
+   * @param {*} password
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
   register(nickname, mobile, password): Observable<string[]>{
     return this.getUrlReturn(this.apiUrlRegister + "?mobile=" + mobile + "&password=" + password + "&nickname=" + nickname);
   }
 
+  /**
+   * 获取用户信息
+   *
+   * @param {*} userId
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
   getUserInfo(userId): Observable<string[]>{
     return this.getUrlReturn(this.apiUrlUserInfo + "?userid=" + userId );
   }
 
-  updateUserInfo(userid, nickname): Observable<string[]>{
-    return this.getUrlReturn(this.apiUrlUpdateNickName + "?userid=" + userid + "&nickname=" + nickname);
+  /**
+   * 更新用户昵称
+   *
+   * @param {*} userId
+   * @param {*} nickname
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
+  updateUserInfo(userId, nickname): Observable<string[]>{
+    return this.getUrlReturn(this.apiUrlUpdateNickName + "?userid=" + userId + "&nickname=" + nickname);
   }
+
+  /**
+   * 发表提问
+   *
+   * @param {*} userId
+   * @param {*} title
+   * @param {*} content
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
+  saveQuestion(userId, title, content): Observable<string[]>{
+    return this.getUrlReturn(this.apiUrlQuestionSave + "?userid=" + userId + "&title=" + title + "&content=" + content);
+  } 
 
   /**
    *
