@@ -1,0 +1,47 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{question?.ContentTitle}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+    <ion-card>
+      <ion-card-content>
+          {{question?.Content}}
+        <p>{{question?.LikeCount}}&nbsp;关注&nbsp;&nbsp;&nbsp;&nbsp;{{question?.CommentCount}}&nbsp;回答</p>
+        <button ion-button small [disabled]="isMyQuestion">
+          <ion-icon name="add">&nbsp;回答</ion-icon>
+        </button>&nbsp;&nbsp;
+        <button ion-button small color="secondary" (click)="saveFavourite()">
+            <ion-icon name="add">&nbsp;{{isFavourite ? '取消关注' : '关注'}}</ion-icon>
+          </button>
+      </ion-card-content>
+    </ion-card> 
+
+
+    <ion-card *ngFor="let f of answers">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{f.HeadFace}}" alt="">
+        </ion-avatar>
+        <p>{{f.UserNickName}}</p>
+      </ion-item>
+      <ion-card-content>
+        <p>{{f.Content}}</p>
+        <p text-right class="answer_date">{{f.CreateDateTime}}</p>
+      </ion-card-content>
+    </ion-card>
+
+
+</ion-content>
