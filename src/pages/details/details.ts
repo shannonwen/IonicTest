@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ToastController, ModalController } from 'ionic-angular';
 import { BaseUI } from '../../common/baseui';
 import { RestProvider } from '../../providers/rest/rest';
 import { Storage } from '@ionic/storage'
+import { AnswerPage } from '../answer/answer';
 
 /**
  * Generated class for the DetailsPage page.
@@ -30,7 +31,8 @@ export class DetailsPage extends BaseUI {
     public loadingCtrl: LoadingController,
     public rest: RestProvider,
     public storage: Storage,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    public modalCtrl: ModalController) {
       super();
   }
 
@@ -84,6 +86,15 @@ export class DetailsPage extends BaseUI {
             );
         }
       })
+  }
+
+  showAnswerPage(){
+    let modal = this.modalCtrl.create(AnswerPage, {id: this.questionId});
+    //关闭后的回调
+    modal.onDidDismiss(() =>{
+      this.loadQuestion(this.questionId);
+    });
+    modal.present();
   }
 
 }

@@ -140,6 +140,19 @@ export class RestProvider {
 
 
   /**
+   * 发布问题
+   *
+   * @param {*} userId
+   * @param {*} questionId
+   * @param {*} content
+   * @returns
+   * @memberof RestProvider
+   */
+  answer(userId, questionId, content){
+    return this.getUrlReturn(this.apiUrlAnswer + "?questionid=" + questionId + "&userid=" + userId + "&content=" + content);
+  }
+
+  /**
    *
    *全局获取HTTP请求的方法
    * @private

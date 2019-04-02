@@ -16,7 +16,7 @@ import { UserPage } from '../pages/user/user';
 import { HeadfacePage } from '../pages/headface/headface';
 import { QuestionPage } from '../pages/question/question';
 import { DetailsPage } from '../pages/details/details';
-
+import { AnswerPage } from '../pages/answer/answer';
 
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -41,7 +41,8 @@ import { Camera } from '@ionic-native/camera';
     UserPage,
     HeadfacePage,
     QuestionPage,
-    DetailsPage
+    DetailsPage,
+    AnswerPage
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,8 @@ import { Camera } from '@ionic-native/camera';
     UserPage,
     HeadfacePage,
     QuestionPage,
-    DetailsPage
+    DetailsPage,
+    AnswerPage
   ],
   providers: [
     StatusBar,

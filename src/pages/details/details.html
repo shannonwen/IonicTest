@@ -20,7 +20,7 @@
       <ion-card-content>
           {{question?.Content}}
         <p>{{question?.LikeCount}}&nbsp;关注&nbsp;&nbsp;&nbsp;&nbsp;{{question?.CommentCount}}&nbsp;回答</p>
-        <button ion-button small [disabled]="isMyQuestion">
+        <button ion-button small [disabled]="isMyQuestion" (click)="showAnswerPage()">
           <ion-icon name="add">&nbsp;回答</ion-icon>
         </button>&nbsp;&nbsp;
         <button ion-button small color="secondary" (click)="saveFavourite()">

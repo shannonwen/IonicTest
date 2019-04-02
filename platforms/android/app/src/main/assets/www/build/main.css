@@ -25678,6 +25678,39 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-details .card {
+  margin: 0;
+  margin-bottom: 10px;
+  width: 100%;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-details .card-content {
+  font-size: 1.4rem;
+}
+
+page-details .button-default {
+  height: 1.8em;
+  font-size: 1.3rem;
+  float: right;
+  display: block;
+  margin-bottom: 10px;
+  padding: 0 0.9em;
+}
+
+page-details .card p {
+  margin-top: 10px;
+}
+
+page-details .answer_date {
+  float: right;
+}
+
+page-details .toolbar-title {
+  font-size: 1.1rem;
+}
+
 page-home .top_header_message_icon {
   float: left;
   font-size: 2em;
@@ -25699,6 +25732,67 @@ page-home .floatMenu {
   margin-bottom: 5px;
   color: #999;
   font-weight: bold;
+}
+
+page-home .card {
+  margin: 0;
+  margin-bottom: 10px;
+  width: 100%;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-home .card h2 {
+  padding-left: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+page-home .card p {
+  color: #464646;
+  font-size: 1.2rem;
+}
+
+page-home .card-content {
+  padding-top: 6px;
+  padding-left: 10px;
+  padding-bottom: 2px;
+}
+
+page-home .card .note {
+  padding-left: 5px;
+  font-size: 1.1rem;
+}
+
+page-home .col {
+  padding-top: 0;
+  padding-bottom: 10px;
+}
+
+page-home .item {
+  padding-left: 10px;
+}
+
+page-home .item ion-avatar {
+  margin: 0 !important;
+  margin-right: 5px !important;
+  margin-bottom: 3px !important;
+  min-height: 20px;
+  min-width: 20px;
+}
+
+page-home .item ion-avatar img {
+  width: 20px;
+  height: 20px;
+}
+
+page-home .item p {
+  color: #999;
+}
+
+page-home .more_button {
+  float: right;
+  padding-top: 3px;
 }
 
 page-more .marginTop {
