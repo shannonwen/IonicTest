@@ -44,13 +44,13 @@ export class HomePage extends BaseUI {
   gotoChat(){
     this.selectTab(2);
   }
-/**
- * 选定指定的tab
- *
- * @param {number} index
- * @memberof HomePage
- */
-selectTab(index: number){
+  /**
+   * 选定指定的tab
+   *
+   * @param {number} index
+   * @memberof HomePage
+   */
+  selectTab(index: number){
     var t:Tabs = this.navCtrl.parent;
     t.select(index);
   }

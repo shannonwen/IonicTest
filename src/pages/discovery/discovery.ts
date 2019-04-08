@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, LoadingController, Refresher } from 'ionic-angular';
+import { RestProvider } from '../../providers/rest/rest';
+import { BaseUI } from '../../common/baseui';
+import { DetailsPage } from '../../pages/details/details'
+
 
 /**
  * Generated class for the DiscoveryPage page.
@@ -13,13 +17,45 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-discovery',
   templateUrl: 'discovery.html',
 })
-export class DiscoveryPage {
+export class DiscoveryPage extends BaseUI {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  feeds: string[];
+  errorMessage: string;
+
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public modalCtrl: ModalController,
+    public loadingCtrl: LoadingController,
+    public rest: RestProvider) {
+      super();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DiscoveryPage');
+    /**
+   * 页面加载完成后执行
+   *
+   * @memberof HomePage
+   */
+  ionViewDidLoad(){
+    this.getFeeds(null);
   }
+
+  getFeeds(refresher){
+    this.rest.getFeeds()
+      .subscribe( 
+        f => {
+          this.feeds = f;
+          refresher && refresher.complete();
+        },
+        error => {
+          this.errorMessage = <any>error
+          refresher && refresher.complete();
+        });
+  }
+
+
+  gotoDetails(questionId){
+    this.navCtrl.push(DetailsPage, {id: questionId});
+  }
+
 
 }

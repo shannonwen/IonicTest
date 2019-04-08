@@ -27,7 +27,7 @@ export class RestProvider {
   private apiUrlUpdateNickName = 'https://imoocqa.gugujiankong.com/api/account/updatenickname';
   //question
   private apiUrlQuestionSave = 'https://imoocqa.gugujiankong.com/api/question/save';
-  private apiUrlQuestionList = 'https://imoocqa.gugujiankong.com/api/question/list?index=1&nu';
+  private apiUrlQuestionList = 'https://imoocqa.gugujiankong.com/api/question/questionlist?index=1&nu';
   private apiUrlGetQuestion = 'https://imoocqa.gugujiankong.com/api/question/get';
   private apiUrlAnswer = 'https://imoocqa.gugujiankong.com/api/question/answer';
   private apiUrlGetQuestionWithUser = 'https://imoocqa.gugujiankong.com/api/question/getwithuser';
@@ -102,6 +102,16 @@ export class RestProvider {
    */
   getFeeds(): Observable<string[]>{
     return this.getUrlReturn(this.apiUrlFeeds);
+  }
+
+    /**
+   * 请求发现的feeds流 
+   *
+   * @type {Observable<string[]>} 
+   * @memberof RestProvider
+   */
+  getQuestions(): Observable<string[]>{
+    return this.getUrlReturn(this.apiUrlQuestionList);
   }
  
   /**
